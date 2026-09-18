@@ -67,6 +67,13 @@
 		'<rect x="13" y="4.5" width="4" height="7" fill="#5c6368"/>' +
 		'<rect x="7" y="17" width="18" height="12" fill="#e6eaed"/>' +
 		"</symbol>" +
+		'<symbol id="i-paw" viewBox="0 0 32 32">' +
+		'<ellipse cx="16" cy="22" rx="7.5" ry="6" fill="#a9754b" stroke="#4a3220" stroke-width="1.2"/>' +
+		'<circle cx="7.5" cy="14" r="3.3" fill="#a9754b" stroke="#4a3220" stroke-width="1.2"/>' +
+		'<circle cx="12.5" cy="8.5" r="3.5" fill="#a9754b" stroke="#4a3220" stroke-width="1.2"/>' +
+		'<circle cx="19.5" cy="8.5" r="3.5" fill="#a9754b" stroke="#4a3220" stroke-width="1.2"/>' +
+		'<circle cx="24.5" cy="14" r="3.3" fill="#a9754b" stroke="#4a3220" stroke-width="1.2"/>' +
+		"</symbol>" +
 		'<symbol id="i-flag" viewBox="0 0 32 32">' +
 		'<path d="M2 8.5l12-3.2v10.2H2z" fill="#e8403a"/><path d="M15.6 5l14.4-3.8v14.3H15.6z" fill="#5bb75b"/>' +
 		'<path d="M2 17.5h12v9.7L2 24.4z" fill="#2196f3"/><path d="M15.6 17.5H30v13.3l-14.4-3.8z" fill="#ffc72c"/>' +
