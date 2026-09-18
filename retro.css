@@ -789,6 +789,11 @@ a.btn95:hover { color: #000; }
 
 .startmenu__rail {
 	width: 26px;
+	flex: none;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	overflow: hidden;
 	background: linear-gradient(180deg, #000082, #1084d0);
 	color: #fff;
 }
@@ -800,6 +805,7 @@ a.btn95:hover { color: #000; }
 	padding: 10px 4px;
 	font-size: 15px;
 	letter-spacing: 0.08em;
+	line-height: 1;
 }
 
 .startmenu__rail b i { font-style: normal; color: #ffd34d; }
@@ -859,6 +865,41 @@ body.is-compact .icons {
 body.is-compact .icon { width: 72px; font-size: 11px; }
 body.is-compact .icon svg { width: 28px; height: 28px; }
 body.is-compact .win__bar { cursor: default; }
+
+/*
+ * Start menu is nearly as tall as the CRT desktop on phones. Without a
+ * height cap its top (and the blue Isquick rail) gets clipped by
+ * .screen { overflow: hidden; border-radius: … }.
+ */
+body.is-compact .startmenu {
+	left: 4px;
+	width: min(236px, calc(100% - 10px));
+	max-height: calc(100% - var(--taskbar-h) - 14px);
+	overflow: hidden;
+}
+
+body.is-compact .startmenu ul {
+	min-height: 0;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+body.is-compact .startmenu button,
+body.is-compact .startmenu a {
+	gap: 7px;
+	padding: 4px 7px;
+	font-size: 12px;
+}
+
+body.is-compact .startmenu svg { width: 18px; height: 18px; }
+
+body.is-compact .startmenu__rail { width: 22px; }
+
+body.is-compact .startmenu__rail b {
+	padding: 8px 2px;
+	font-size: 12px;
+	letter-spacing: 0.06em;
+}
 
 @media (max-width: 720px) {
 	.case { padding: 10px 12px; }
