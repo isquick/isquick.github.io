@@ -633,6 +633,135 @@ a.btn95 {
 
 a.btn95:hover { color: #000; }
 
+/* ---------- hamster dance ----------------------------------------------- */
+
+.hamster-dance {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	min-height: 100%;
+	margin: -10px;
+	padding: 10px;
+	background:
+		repeating-linear-gradient(
+			45deg,
+			#ff39c4 0 12px,
+			#39ff14 12px 24px,
+			#00e5ff 24px 36px,
+			#ffe600 36px 48px
+		);
+	color: #101010;
+	overflow: hidden;
+}
+
+.hamster-dance.is-dancing {
+	animation: hamster-bg 0.9s steps(4, end) infinite;
+}
+
+.hamster-dance__marquee {
+	margin: 0;
+	padding: 4px 0;
+	overflow: hidden;
+	white-space: nowrap;
+	background: #000;
+	color: #ffe600;
+	font-family: "Courier New", Courier, monospace;
+	font-size: 12px;
+	font-weight: bold;
+	letter-spacing: 0.04em;
+	border: 2px solid #fff;
+	box-shadow: inset 0 0 0 1px #ff39c4;
+}
+
+.hamster-dance__marquee span {
+	display: inline-block;
+	padding-left: 100%;
+	animation: hamster-marquee 14s linear infinite;
+}
+
+.hamster-dance__stage {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 8px;
+	padding: 12px;
+	background: rgba(255, 255, 255, 0.72);
+	border: 2px solid #000;
+	box-shadow: inset 2px 2px 0 #fff, inset -2px -2px 0 #808080;
+	cursor: pointer;
+}
+
+.hamster {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	aspect-ratio: 1;
+	background: #fff8dc;
+	border: 1px solid #6b3f14;
+}
+
+.hamster svg {
+	width: 72%;
+	height: 72%;
+	overflow: visible;
+}
+
+.hamster-dance.is-dancing .hamster--a { animation: hamster-bounce 0.42s ease-in-out infinite; }
+.hamster-dance.is-dancing .hamster--b { animation: hamster-spin 0.7s linear infinite; }
+.hamster-dance.is-dancing .hamster--c { animation: hamster-wiggle 0.35s ease-in-out infinite alternate; }
+.hamster-dance.is-dancing .hamster--d { animation: hamster-hop 0.5s ease-in-out infinite; }
+
+.hamster-dance__controls {
+	margin: 0;
+	padding: 8px;
+	border: 2px solid #000;
+	border-bottom: 0;
+	background: var(--face);
+}
+
+.hamster-dance__caption {
+	margin: 0;
+	padding: 8px 10px;
+	background: #fff;
+	border: 2px solid #000;
+	font-size: 12px;
+	line-height: 1.45;
+}
+
+@keyframes hamster-bg {
+	0% { filter: hue-rotate(0deg) saturate(1.2); }
+	25% { filter: hue-rotate(40deg) saturate(1.4); }
+	50% { filter: hue-rotate(90deg) saturate(1.2); }
+	75% { filter: hue-rotate(160deg) saturate(1.35); }
+	100% { filter: hue-rotate(0deg) saturate(1.2); }
+}
+
+@keyframes hamster-marquee {
+	0% { transform: translateX(0); }
+	100% { transform: translateX(-100%); }
+}
+
+@keyframes hamster-bounce {
+	0%, 100% { transform: translateY(0) scale(1); }
+	50% { transform: translateY(-10px) scale(1.08); }
+}
+
+@keyframes hamster-spin {
+	0% { transform: rotate(-12deg) scale(1); }
+	50% { transform: rotate(12deg) scale(1.1); }
+	100% { transform: rotate(-12deg) scale(1); }
+}
+
+@keyframes hamster-wiggle {
+	from { transform: translateX(-6px) rotate(-8deg); }
+	to { transform: translateX(6px) rotate(8deg); }
+}
+
+@keyframes hamster-hop {
+	0%, 100% { transform: translateY(0) rotate(0deg); }
+	25% { transform: translateY(-12px) rotate(-10deg); }
+	75% { transform: translateY(-4px) rotate(8deg); }
+}
+
 .pdf-frame {
 	width: 100%;
 	height: min(560px, 60vh);
@@ -914,6 +1043,14 @@ body.is-compact .startmenu__rail b {
 	.crt::after { animation: none; }
 	.boot__text::after { animation: none; }
 	.splash__fill { transition: none; }
+	.hamster-dance.is-dancing,
+	.hamster-dance__marquee span,
+	.hamster-dance.is-dancing .hamster--a,
+	.hamster-dance.is-dancing .hamster--b,
+	.hamster-dance.is-dancing .hamster--c,
+	.hamster-dance.is-dancing .hamster--d {
+		animation: none;
+	}
 }
 
 .noscript {
