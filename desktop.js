@@ -75,18 +75,7 @@
 		'<circle cx="24.5" cy="14" r="3.3" fill="#a9754b" stroke="#4a3220" stroke-width="1.2"/>' +
 		"</symbol>" +
 		'<symbol id="i-hamster" viewBox="0 0 32 32">' +
-		'<ellipse cx="16" cy="18" rx="10" ry="8.5" fill="#e8b56a" stroke="#6b3f14" stroke-width="1.2"/>' +
-		'<ellipse cx="7" cy="12" rx="4.2" ry="4.8" fill="#e8b56a" stroke="#6b3f14" stroke-width="1.2"/>' +
-		'<ellipse cx="25" cy="12" rx="4.2" ry="4.8" fill="#e8b56a" stroke="#6b3f14" stroke-width="1.2"/>' +
-		'<ellipse cx="7" cy="12.5" rx="2.2" ry="2.6" fill="#f3c9a0"/>' +
-		'<ellipse cx="25" cy="12.5" rx="2.2" ry="2.6" fill="#f3c9a0"/>' +
-		'<ellipse cx="16" cy="21" rx="3.2" ry="2.4" fill="#f0a8b8" stroke="#6b3f14" stroke-width="0.8"/>' +
-		'<circle cx="12" cy="16" r="1.4" fill="#2a1a0a"/>' +
-		'<circle cx="20" cy="16" r="1.4" fill="#2a1a0a"/>' +
-		'<circle cx="12.4" cy="15.6" r="0.45" fill="#fff"/>' +
-		'<circle cx="20.4" cy="15.6" r="0.45" fill="#fff"/>' +
-		'<ellipse cx="16" cy="18.2" rx="1.1" ry="0.8" fill="#5a3310"/>' +
-		'<path d="M11 24.5c1.6 1.4 8.4 1.4 10 0" fill="none" stroke="#6b3f14" stroke-width="1" stroke-linecap="round"/>' +
+		'<image href="hampster/icon.png" x="1" y="1" width="30" height="30" preserveAspectRatio="xMidYMid meet"/>' +
 		"</symbol>" +
 		'<symbol id="i-flag" viewBox="0 0 32 32">' +
 		'<path d="M2 8.5l12-3.2v10.2H2z" fill="#e8403a"/><path d="M15.6 5l14.4-3.8v14.3H15.6z" fill="#5bb75b"/>' +
@@ -134,8 +123,15 @@
 	}
 
 	function useIcon(name, cls) {
+		var klass = cls || "";
+		if (name === "hamster") {
+			return (
+				'<img class="' + klass + '" src="hampster/icon.png" width="32" height="32" alt="" ' +
+				'draggable="false" style="image-rendering:pixelated">'
+			);
+		}
 		return (
-			'<svg class="' + (cls || "") + '" viewBox="0 0 32 32" aria-hidden="true"><use href="#i-' +
+			'<svg class="' + klass + '" viewBox="0 0 32 32" aria-hidden="true"><use href="#i-' +
 			name +
 			'"/></svg>'
 		);

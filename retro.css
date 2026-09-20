@@ -564,10 +564,17 @@ body.is-off .screen {
 	text-decoration: none;
 }
 
-.icon svg {
+.icon svg,
+.icon img {
 	width: 34px;
 	height: 34px;
 	filter: drop-shadow(1px 1px 0 rgba(0, 0, 0, 0.45));
+}
+
+.icon img {
+	object-fit: contain;
+	image-rendering: pixelated;
+	image-rendering: crisp-edges;
 }
 
 .icon__label {
@@ -632,7 +639,8 @@ body.is-off .screen {
 	color: #fff;
 }
 
-.win__bar svg { width: 16px; height: 16px; flex: none; }
+.win__bar svg,
+.win__bar img { width: 16px; height: 16px; flex: none; object-fit: contain; image-rendering: pixelated; }
 
 .win__title {
 	flex: 1;
@@ -962,7 +970,8 @@ a.btn95:hover { color: #000; }
 	white-space: nowrap;
 }
 
-.task svg { width: 15px; height: 15px; flex: none; }
+.task svg,
+.task img { width: 15px; height: 15px; flex: none; object-fit: contain; image-rendering: pixelated; }
 
 .task.is-active {
 	box-shadow:
@@ -1061,7 +1070,8 @@ a.btn95:hover { color: #000; }
 	cursor: default;
 }
 
-.startmenu svg { width: 22px; height: 22px; flex: none; }
+.startmenu svg,
+.startmenu img { width: 22px; height: 22px; flex: none; object-fit: contain; image-rendering: pixelated; }
 
 .startmenu button:hover,
 .startmenu a:hover,
@@ -1083,7 +1093,8 @@ body.is-compact .icons {
 }
 
 body.is-compact .icon { width: 72px; font-size: 11px; }
-body.is-compact .icon svg { width: 28px; height: 28px; }
+body.is-compact .icon svg,
+body.is-compact .icon img { width: 28px; height: 28px; }
 body.is-compact .win__bar { cursor: default; }
 
 /*
@@ -1111,7 +1122,8 @@ body.is-compact .startmenu a {
 	font-size: 12px;
 }
 
-body.is-compact .startmenu svg { width: 18px; height: 18px; }
+body.is-compact .startmenu svg,
+body.is-compact .startmenu img { width: 18px; height: 18px; }
 
 body.is-compact .startmenu__rail { width: 22px; }
 
