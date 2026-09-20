@@ -74,6 +74,20 @@
 		'<circle cx="19.5" cy="8.5" r="3.5" fill="#a9754b" stroke="#4a3220" stroke-width="1.2"/>' +
 		'<circle cx="24.5" cy="14" r="3.3" fill="#a9754b" stroke="#4a3220" stroke-width="1.2"/>' +
 		"</symbol>" +
+		'<symbol id="i-hamster" viewBox="0 0 32 32">' +
+		'<ellipse cx="16" cy="18" rx="10" ry="8.5" fill="#e8b56a" stroke="#6b3f14" stroke-width="1.2"/>' +
+		'<ellipse cx="7" cy="12" rx="4.2" ry="4.8" fill="#e8b56a" stroke="#6b3f14" stroke-width="1.2"/>' +
+		'<ellipse cx="25" cy="12" rx="4.2" ry="4.8" fill="#e8b56a" stroke="#6b3f14" stroke-width="1.2"/>' +
+		'<ellipse cx="7" cy="12.5" rx="2.2" ry="2.6" fill="#f3c9a0"/>' +
+		'<ellipse cx="25" cy="12.5" rx="2.2" ry="2.6" fill="#f3c9a0"/>' +
+		'<ellipse cx="16" cy="21" rx="3.2" ry="2.4" fill="#f0a8b8" stroke="#6b3f14" stroke-width="0.8"/>' +
+		'<circle cx="12" cy="16" r="1.4" fill="#2a1a0a"/>' +
+		'<circle cx="20" cy="16" r="1.4" fill="#2a1a0a"/>' +
+		'<circle cx="12.4" cy="15.6" r="0.45" fill="#fff"/>' +
+		'<circle cx="20.4" cy="15.6" r="0.45" fill="#fff"/>' +
+		'<ellipse cx="16" cy="18.2" rx="1.1" ry="0.8" fill="#5a3310"/>' +
+		'<path d="M11 24.5c1.6 1.4 8.4 1.4 10 0" fill="none" stroke="#6b3f14" stroke-width="1" stroke-linecap="round"/>' +
+		"</symbol>" +
 		'<symbol id="i-flag" viewBox="0 0 32 32">' +
 		'<path d="M2 8.5l12-3.2v10.2H2z" fill="#e8403a"/><path d="M15.6 5l14.4-3.8v14.3H15.6z" fill="#5bb75b"/>' +
 		'<path d="M2 17.5h12v9.7L2 24.4z" fill="#2196f3"/><path d="M15.6 17.5H30v13.3l-14.4-3.8z" fill="#ffc72c"/>' +
@@ -211,6 +225,7 @@
 
 	function closeWin(id) {
 		var win = windows[id];
+		if (id === "hamsterdance") stopHamsterDance();
 		win.el.hidden = true;
 		win.task.hidden = true;
 		var next = Object.keys(windows).filter(function (k) {
@@ -221,6 +236,7 @@
 
 	function minimizeWin(id) {
 		var win = windows[id];
+		if (id === "hamsterdance") stopHamsterDance();
 		win.el.hidden = true;
 		win.el.classList.remove("is-active");
 		win.task.classList.remove("is-active");
@@ -497,6 +513,126 @@
 		setInterval(tick, 20000);
 	}
 
+	/* ---------- hamster dance --------------------------------------------- */
+
+	var hamsterAudio = null;
+	var hamsterTimer = null;
+	var hamsterStep = 0;
+	var hamsterDancing = true;
+	var hamsterMusic = false;
+
+	var HAMSTER_NOTES = [
+		523.25, 523.25, 659.25, 523.25, 783.99, 698.46,
+		523.25, 523.25, 659.25, 523.25, 880.0, 783.99,
+		523.25, 523.25, 1046.5, 830.61, 783.99, 698.46, 659.25,
+		932.33, 932.33, 830.61, 783.99, 880.0, 783.99
+	];
+
+	function ensureHamsterAudio() {
+		var Ctx = window.AudioContext || window.webkitAudioContext;
+		if (!Ctx) return null;
+		if (!hamsterAudio) hamsterAudio = new Ctx();
+		if (hamsterAudio.state === "suspended") hamsterAudio.resume();
+		return hamsterAudio;
+	}
+
+	function beepHamster(freq, dur) {
+		var ctx = ensureHamsterAudio();
+		if (!ctx) return;
+		var osc = ctx.createOscillator();
+		var gain = ctx.createGain();
+		osc.type = "square";
+		osc.frequency.value = freq;
+		gain.gain.setValueAtTime(0.045, ctx.currentTime);
+		gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + dur);
+		osc.connect(gain);
+		gain.connect(ctx.destination);
+		osc.start();
+		osc.stop(ctx.currentTime + dur);
+	}
+
+	function tickHamsterMusic() {
+		if (!hamsterMusic || !hamsterDancing) return;
+		beepHamster(HAMSTER_NOTES[hamsterStep % HAMSTER_NOTES.length], 0.14);
+		hamsterStep += 1;
+	}
+
+	function startHamsterMusic() {
+		hamsterMusic = true;
+		if (hamsterTimer) return;
+		tickHamsterMusic();
+		hamsterTimer = setInterval(tickHamsterMusic, 180);
+	}
+
+	function stopHamsterMusic() {
+		hamsterMusic = false;
+		if (hamsterTimer) {
+			clearInterval(hamsterTimer);
+			hamsterTimer = null;
+		}
+		hamsterStep = 0;
+	}
+
+	function stopHamsterDance() {
+		stopHamsterMusic();
+		var root = doc.getElementById("hamster-dance");
+		if (!root) return;
+		var musicBtn = root.querySelector("[data-hamster='music']");
+		if (musicBtn) {
+			musicBtn.textContent = "Music: Off";
+			musicBtn.setAttribute("aria-pressed", "false");
+		}
+	}
+
+	function initHamsterDance() {
+		var root = doc.getElementById("hamster-dance");
+		if (!root || root.dataset.ready) return;
+		root.dataset.ready = "1";
+
+		var danceBtn = root.querySelector("[data-hamster='dance']");
+		var musicBtn = root.querySelector("[data-hamster='music']");
+		var stage = root.querySelector(".hamster-dance__stage");
+
+		function setDancing(on) {
+			hamsterDancing = on;
+			root.classList.toggle("is-dancing", on && !reduceMotion);
+			if (danceBtn) danceBtn.textContent = on ? "Chill out" : "Dance!";
+			if (!on) stopHamsterMusic();
+			else if (musicBtn && musicBtn.getAttribute("aria-pressed") === "true") {
+				startHamsterMusic();
+			}
+		}
+
+		setDancing(!reduceMotion);
+
+		if (danceBtn) {
+			danceBtn.addEventListener("click", function () {
+				setDancing(!hamsterDancing);
+			});
+		}
+
+		if (musicBtn) {
+			musicBtn.addEventListener("click", function () {
+				if (hamsterMusic) {
+					stopHamsterMusic();
+					musicBtn.textContent = "Music: Off";
+					musicBtn.setAttribute("aria-pressed", "false");
+				} else {
+					if (!hamsterDancing) setDancing(true);
+					startHamsterMusic();
+					musicBtn.textContent = "Music: On";
+					musicBtn.setAttribute("aria-pressed", "true");
+				}
+			});
+		}
+
+		if (stage) {
+			stage.addEventListener("click", function () {
+				if (!hamsterDancing) setDancing(true);
+			});
+		}
+	}
+
 	/* ---------- init ------------------------------------------------------- */
 
 	function init() {
@@ -519,6 +655,7 @@
 		buildIcons(iconSources, iconList);
 		buildStartMenu(menuSources);
 		startClock();
+		initHamsterDance();
 
 		area.addEventListener("pointerdown", function (ev) {
 			if (!ev.target.closest(".icon") && !ev.target.closest(".win")) {
