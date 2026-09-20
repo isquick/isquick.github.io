@@ -633,149 +633,101 @@ a.btn95 {
 
 a.btn95:hover { color: #000; }
 
-/* ---------- hamster dance ----------------------------------------------- */
+/* ---------- hamster dance (GeoCities tribute) ---------------------------- */
 
-.hamster-dance {
-	position: relative;
+.win__body--plain:has(.hamster-dance) {
 	display: flex;
 	flex-direction: column;
-	gap: 8px;
-	min-height: 100%;
-	margin: -10px;
-	padding: 10px;
-	color: #101010;
+	padding: 0;
 	overflow: hidden;
-	isolation: isolate;
 }
 
-.hamster-dance::before {
-	content: "";
-	position: absolute;
-	inset: 0;
-	z-index: -1;
-	background:
-		repeating-linear-gradient(
-			45deg,
-			#ff39c4 0 12px,
-			#39ff14 12px 24px,
-			#00e5ff 24px 36px,
-			#ffe600 36px 48px
-		);
-}
-
-.hamster-dance.is-dancing::before {
-	animation: hamster-bg 0.9s steps(4, end) infinite;
-}
-
-.hamster-dance__marquee {
-	margin: 0;
-	padding: 4px 0;
-	overflow: hidden;
-	white-space: nowrap;
-	background: #000;
-	color: #ffe600;
-	font-family: "Courier New", Courier, monospace;
-	font-size: 12px;
-	font-weight: bold;
-	letter-spacing: 0.04em;
-	border: 2px solid #fff;
-	box-shadow: inset 0 0 0 1px #ff39c4;
-	flex: none;
-}
-
-.hamster-dance__marquee span {
-	display: inline-block;
-	padding-left: 100%;
-	animation: hamster-marquee 14s linear infinite;
-}
-
-.hamster-dance__stage {
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	gap: 6px;
-	padding: 8px;
-	background: rgba(255, 255, 255, 0.82);
-	border: 2px solid #000;
-	box-shadow: inset 2px 2px 0 #fff, inset -2px -2px 0 #808080;
-	cursor: pointer;
+.hamster-dance {
+	display: flex;
+	flex-direction: column;
 	flex: 1 1 auto;
 	min-height: 0;
-	max-height: 260px;
+	height: 100%;
+	background: #fff;
+	color: #000;
+	font-family: "Times New Roman", Times, serif;
 }
 
-.hamster {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+.hamster-dance__page {
+	flex: 1 1 auto;
 	min-height: 0;
-	background: #fff8dc;
-	border: 1px solid #6b3f14;
+	padding: 12px 14px 8px;
+	overflow: auto;
+	text-align: center;
 }
 
-.hamster svg {
-	width: 70%;
-	height: 70%;
-	max-height: 56px;
-	overflow: visible;
+.hamster-dance__page h1 {
+	margin: 0 0 4px;
+	font-size: 28px;
+	font-weight: bold;
+	letter-spacing: 0;
+	text-transform: none;
+	color: #000;
 }
 
-.hamster-dance.is-dancing .hamster--a { animation: hamster-bounce 0.42s ease-in-out infinite; }
-.hamster-dance.is-dancing .hamster--b { animation: hamster-spin 0.7s linear infinite; }
-.hamster-dance.is-dancing .hamster--c { animation: hamster-wiggle 0.35s ease-in-out infinite alternate; }
-.hamster-dance.is-dancing .hamster--d { animation: hamster-hop 0.5s ease-in-out infinite; }
+.hamster-dance__page h2 {
+	margin: 0 0 12px;
+	font-size: 16px;
+	font-weight: bold;
+	font-style: italic;
+	letter-spacing: 0;
+	text-transform: none;
+	color: #000;
+}
+
+.hamster-dance__rated {
+	margin: 0 0 2px;
+	font-family: Tahoma, "MS Sans Serif", sans-serif;
+	font-size: 10px;
+	color: #333;
+}
+
+.hamster-dance__rows {
+	line-height: 0;
+}
+
+.hamster-dance__rows p {
+	margin: 0 0 2px;
+	line-height: 0;
+}
+
+.hamster-dance__rows img {
+	display: inline-block;
+	vertical-align: bottom;
+	image-rendering: pixelated;
+	image-rendering: crisp-edges;
+}
+
+.hamster-dance__footer {
+	margin: 14px 0 4px;
+	font-family: Tahoma, "MS Sans Serif", sans-serif;
+	font-size: 11px;
+	line-height: 1.45;
+	color: #222;
+	text-align: center;
+}
+
+.hamster-dance__footer span {
+	display: block;
+	margin-top: 6px;
+	color: #555;
+}
 
 .hamster-dance__controls {
-	margin: 0;
-	padding: 8px;
-	border: 2px solid #000;
-	border-bottom: 0;
+	flex: none;
+	display: flex;
+	gap: 8px;
+	align-items: center;
+	justify-content: center;
+	padding: 6px 8px;
+	border-top: 1px solid #808080;
 	background: var(--face);
-	flex: none;
-}
-
-.hamster-dance__caption {
-	margin: 0;
-	padding: 8px 10px;
-	background: #fff;
-	border: 2px solid #000;
-	font-size: 12px;
-	line-height: 1.45;
-	flex: none;
-}
-
-@keyframes hamster-bg {
-	0% { filter: hue-rotate(0deg) saturate(1.15); }
-	25% { filter: hue-rotate(50deg) saturate(1.3); }
-	50% { filter: hue-rotate(110deg) saturate(1.15); }
-	75% { filter: hue-rotate(180deg) saturate(1.25); }
-	100% { filter: hue-rotate(0deg) saturate(1.15); }
-}
-
-@keyframes hamster-marquee {
-	0% { transform: translateX(0); }
-	100% { transform: translateX(-100%); }
-}
-
-@keyframes hamster-bounce {
-	0%, 100% { transform: translateY(0) scale(1); }
-	50% { transform: translateY(-8px) scale(1.06); }
-}
-
-@keyframes hamster-spin {
-	0% { transform: rotate(-12deg) scale(1); }
-	50% { transform: rotate(12deg) scale(1.08); }
-	100% { transform: rotate(-12deg) scale(1); }
-}
-
-@keyframes hamster-wiggle {
-	from { transform: translateX(-5px) rotate(-8deg); }
-	to { transform: translateX(5px) rotate(8deg); }
-}
-
-@keyframes hamster-hop {
-	0%, 100% { transform: translateY(0) rotate(0deg); }
-	25% { transform: translateY(-10px) rotate(-10deg); }
-	75% { transform: translateY(-3px) rotate(8deg); }
+	font-family: Tahoma, "MS Sans Serif", sans-serif;
 }
 
 .pdf-frame {
@@ -1059,14 +1011,6 @@ body.is-compact .startmenu__rail b {
 	.crt::after { animation: none; }
 	.boot__text::after { animation: none; }
 	.splash__fill { transition: none; }
-	.hamster-dance.is-dancing::before,
-	.hamster-dance__marquee span,
-	.hamster-dance.is-dancing .hamster--a,
-	.hamster-dance.is-dancing .hamster--b,
-	.hamster-dance.is-dancing .hamster--c,
-	.hamster-dance.is-dancing .hamster--d {
-		animation: none;
-	}
 }
 
 .noscript {
