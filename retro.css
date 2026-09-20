@@ -804,14 +804,14 @@ a.btn95:hover { color: #000; }
 .hamster-dance__page {
 	flex: 1 1 auto;
 	min-height: 0;
-	padding: 12px 14px 8px;
+	padding: 8px 12px 6px;
 	overflow: auto;
 	text-align: center;
 }
 
 .hamster-dance__page h1 {
-	margin: 0 0 4px;
-	font-size: 28px;
+	margin: 0 0 2px;
+	font-size: 18px;
 	font-weight: bold;
 	letter-spacing: 0;
 	text-transform: none;
@@ -819,8 +819,8 @@ a.btn95:hover { color: #000; }
 }
 
 .hamster-dance__page h2 {
-	margin: 0 0 12px;
-	font-size: 16px;
+	margin: 0 0 6px;
+	font-size: 13px;
 	font-weight: bold;
 	font-style: italic;
 	letter-spacing: 0;
@@ -829,9 +829,9 @@ a.btn95:hover { color: #000; }
 }
 
 .hamster-dance__rated {
-	margin: 0 0 2px;
+	margin: 0 0 1px;
 	font-family: Tahoma, "MS Sans Serif", sans-serif;
-	font-size: 10px;
+	font-size: 9px;
 	color: #333;
 }
 
