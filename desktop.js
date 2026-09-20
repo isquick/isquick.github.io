@@ -518,14 +518,13 @@
 	var hamsterAudio = null;
 	var hamsterTimer = null;
 	var hamsterStep = 0;
-	var hamsterDancing = true;
 	var hamsterMusic = false;
 
+	/* Original-ish doodoo whistle — homemade, not the copyrighted sample. */
 	var HAMSTER_NOTES = [
-		523.25, 523.25, 659.25, 523.25, 783.99, 698.46,
-		523.25, 523.25, 659.25, 523.25, 880.0, 783.99,
-		523.25, 523.25, 1046.5, 830.61, 783.99, 698.46, 659.25,
-		932.33, 932.33, 830.61, 783.99, 880.0, 783.99
+		784, 880, 988, 880, 784, 659, 587, 659,
+		784, 880, 988, 1047, 988, 880, 784, 659,
+		880, 784, 659, 587, 523, 587, 659, 784
 	];
 
 	function ensureHamsterAudio() {
@@ -541,9 +540,9 @@
 		if (!ctx) return;
 		var osc = ctx.createOscillator();
 		var gain = ctx.createGain();
-		osc.type = "square";
+		osc.type = "triangle";
 		osc.frequency.value = freq;
-		gain.gain.setValueAtTime(0.045, ctx.currentTime);
+		gain.gain.setValueAtTime(0.055, ctx.currentTime);
 		gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + dur);
 		osc.connect(gain);
 		gain.connect(ctx.destination);
@@ -552,8 +551,8 @@
 	}
 
 	function tickHamsterMusic() {
-		if (!hamsterMusic || !hamsterDancing) return;
-		beepHamster(HAMSTER_NOTES[hamsterStep % HAMSTER_NOTES.length], 0.14);
+		if (!hamsterMusic) return;
+		beepHamster(HAMSTER_NOTES[hamsterStep % HAMSTER_NOTES.length], 0.11);
 		hamsterStep += 1;
 	}
 
@@ -561,7 +560,7 @@
 		hamsterMusic = true;
 		if (hamsterTimer) return;
 		tickHamsterMusic();
-		hamsterTimer = setInterval(tickHamsterMusic, 180);
+		hamsterTimer = setInterval(tickHamsterMusic, 130);
 	}
 
 	function stopHamsterMusic() {
@@ -579,7 +578,7 @@
 		if (!root) return;
 		var musicBtn = root.querySelector("[data-hamster='music']");
 		if (musicBtn) {
-			musicBtn.textContent = "Music: Off";
+			musicBtn.textContent = "\u266B Music: Off";
 			musicBtn.setAttribute("aria-pressed", "false");
 		}
 	}
@@ -589,48 +588,20 @@
 		if (!root || root.dataset.ready) return;
 		root.dataset.ready = "1";
 
-		var danceBtn = root.querySelector("[data-hamster='dance']");
 		var musicBtn = root.querySelector("[data-hamster='music']");
-		var stage = root.querySelector(".hamster-dance__stage");
+		if (!musicBtn) return;
 
-		function setDancing(on) {
-			hamsterDancing = on;
-			root.classList.toggle("is-dancing", on && !reduceMotion);
-			if (danceBtn) danceBtn.textContent = on ? "Chill out" : "Dance!";
-			if (!on) stopHamsterMusic();
-			else if (musicBtn && musicBtn.getAttribute("aria-pressed") === "true") {
+		musicBtn.addEventListener("click", function () {
+			if (hamsterMusic) {
+				stopHamsterMusic();
+				musicBtn.textContent = "\u266B Music: Off";
+				musicBtn.setAttribute("aria-pressed", "false");
+			} else {
 				startHamsterMusic();
+				musicBtn.textContent = "\u266B Music: On";
+				musicBtn.setAttribute("aria-pressed", "true");
 			}
-		}
-
-		setDancing(!reduceMotion);
-
-		if (danceBtn) {
-			danceBtn.addEventListener("click", function () {
-				setDancing(!hamsterDancing);
-			});
-		}
-
-		if (musicBtn) {
-			musicBtn.addEventListener("click", function () {
-				if (hamsterMusic) {
-					stopHamsterMusic();
-					musicBtn.textContent = "Music: Off";
-					musicBtn.setAttribute("aria-pressed", "false");
-				} else {
-					if (!hamsterDancing) setDancing(true);
-					startHamsterMusic();
-					musicBtn.textContent = "Music: On";
-					musicBtn.setAttribute("aria-pressed", "true");
-				}
-			});
-		}
-
-		if (stage) {
-			stage.addEventListener("click", function () {
-				if (!hamsterDancing) setDancing(true);
-			});
-		}
+		});
 	}
 
 	/* ---------- brightness + power ---------------------------------------- */
