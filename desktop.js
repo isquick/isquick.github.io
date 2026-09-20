@@ -604,6 +604,135 @@
 		});
 	}
 
+	/* ---------- brightness + power ---------------------------------------- */
+
+	var BRIGHT_KEY = "isq-brightness";
+	var BRIGHT_MIN = 0.35;
+	var BRIGHT_MAX = 1.5;
+	var BRIGHT_STEP = 0.12;
+	var brightness = 1;
+	var powerModal = null;
+	var safeOff = null;
+	var poweredOff = false;
+
+	function setBrightness(value) {
+		brightness = Math.round(Math.max(BRIGHT_MIN, Math.min(BRIGHT_MAX, value)) * 100) / 100;
+		doc.documentElement.style.setProperty("--screen-brightness", String(brightness));
+		try { localStorage.setItem(BRIGHT_KEY, String(brightness)); } catch (e) {}
+	}
+
+	function nudgeBrightness(dir) {
+		if (poweredOff) return;
+		setBrightness(brightness + dir * BRIGHT_STEP);
+	}
+
+	function closePowerModal() {
+		if (!powerModal) return;
+		powerModal.hidden = true;
+	}
+
+	function openPowerModal() {
+		if (!powerModal || poweredOff) return;
+		toggleStart(false);
+		powerModal.hidden = false;
+		var first = powerModal.querySelector('input[name="power-act"]:checked') ||
+			powerModal.querySelector('input[name="power-act"]');
+		if (first) first.focus();
+	}
+
+	function doShutdown() {
+		closePowerModal();
+		poweredOff = true;
+		stopHamsterDance();
+		body.classList.remove("is-on");
+		body.classList.add("is-off");
+		if (safeOff) safeOff.hidden = false;
+		["boot", "splash", "desktop"].forEach(function (id) {
+			var layer = doc.getElementById(id);
+			if (layer) layer.hidden = true;
+		});
+	}
+
+	function doRestart() {
+		closePowerModal();
+		try { sessionStorage.removeItem(BOOTED_KEY); } catch (e) {}
+		window.location.reload();
+	}
+
+	function powerOn() {
+		if (!poweredOff) return;
+		try { sessionStorage.removeItem(BOOTED_KEY); } catch (e) {}
+		window.location.reload();
+	}
+
+	function buildPowerUI() {
+		var screen = doc.querySelector(".screen");
+		if (!screen) return;
+
+		safeOff = el("div", "safe-off");
+		safeOff.hidden = true;
+		safeOff.setAttribute("role", "status");
+		safeOff.innerHTML =
+			"<div><strong>It&#8217;s now safe to turn off your computer.</strong>" +
+			"<span>Press the power button to start again.</span></div>";
+		screen.appendChild(safeOff);
+
+		powerModal = el("div", "power-modal");
+		powerModal.hidden = true;
+		powerModal.setAttribute("role", "dialog");
+		powerModal.setAttribute("aria-modal", "true");
+		powerModal.setAttribute("aria-labelledby", "power-modal-title");
+		powerModal.innerHTML =
+			'<div class="power-modal__dialog">' +
+			'<div class="power-modal__bar"><span id="power-modal-title">Shut Down Isquick 96</span></div>' +
+			'<div class="power-modal__body">' +
+			"<p>What do you want the computer to do?</p>" +
+			'<div class="power-modal__options">' +
+			'<label><input type="radio" name="power-act" value="shutdown" checked> Shut down</label>' +
+			'<label><input type="radio" name="power-act" value="restart"> Restart</label>' +
+			"</div>" +
+			'<div class="power-modal__actions">' +
+			'<button class="btn95" type="button" data-power="ok">OK</button>' +
+			'<button class="btn95" type="button" data-power="cancel">Cancel</button>' +
+			"</div></div></div>";
+		doc.body.appendChild(powerModal);
+
+		powerModal.addEventListener("click", function (ev) {
+			if (ev.target === powerModal) closePowerModal();
+		});
+
+		powerModal.querySelector('[data-power="cancel"]').addEventListener("click", closePowerModal);
+		powerModal.querySelector('[data-power="ok"]').addEventListener("click", function () {
+			var picked = powerModal.querySelector('input[name="power-act"]:checked');
+			var act = picked ? picked.value : "shutdown";
+			if (act === "restart") doRestart();
+			else doShutdown();
+		});
+	}
+
+	function initHardware() {
+		var stored = null;
+		try { stored = localStorage.getItem(BRIGHT_KEY); } catch (e) {}
+		if (stored != null && !isNaN(parseFloat(stored))) setBrightness(parseFloat(stored));
+		else setBrightness(1);
+
+		buildPowerUI();
+
+		doc.querySelectorAll(".knob[data-bright]").forEach(function (btn) {
+			btn.addEventListener("click", function () {
+				nudgeBrightness(parseFloat(btn.dataset.bright) || 0);
+			});
+		});
+
+		var powerBtn = doc.querySelector(".power-btn");
+		if (powerBtn) {
+			powerBtn.addEventListener("click", function () {
+				if (poweredOff) powerOn();
+				else openPowerModal();
+			});
+		}
+	}
+
 	/* ---------- init ------------------------------------------------------- */
 
 	function init() {
@@ -627,6 +756,7 @@
 		buildStartMenu(menuSources);
 		startClock();
 		initHamsterDance();
+		initHardware();
 
 		area.addEventListener("pointerdown", function (ev) {
 			if (!ev.target.closest(".icon") && !ev.target.closest(".win")) {
@@ -643,7 +773,10 @@
 		});
 
 		doc.addEventListener("keydown", function (ev) {
-			if (ev.key === "Escape") toggleStart(false);
+			if (ev.key === "Escape") {
+				if (powerModal && !powerModal.hidden) closePowerModal();
+				else toggleStart(false);
+			}
 		});
 
 		function syncCompact() {
