@@ -25,6 +25,8 @@ Twelve years of marketing other people’s products left me wanting one of my ow
 
 Free on iPhone and iPad, with an optional Muttgrams Pro subscription.
 
+Team cat? [Catgrams](catgrams.md) does the same thing for your cat.
+
 ---
 
 [All topics](../index.md) · [Chat with David's agent about this](https://www.davidisquick.com/#muttgrams)

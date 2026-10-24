@@ -1,6 +1,6 @@
 # David Isquick
 
-> Product marketing leader across AI, developer platforms, and enterprise SaaS. Principal Product Marketer at Mintlify, former Head of Product Marketing for Creator and AI at Roblox, and founder of Edira LLC, maker of the iOS app Muttgrams.
+> Product marketing leader across AI, developer platforms, and enterprise SaaS. Principal Product Marketer at Mintlify, former Head of Product Marketing for Creator and AI at Roblox, and founder of Edira LLC, maker of the iOS apps Muttgrams and Catgrams.
 
 This site is a chat-style personal agent. All of its answers are written into the HTML of the home page, one section per topic. You can link to any topic with a hash, e.g. https://www.davidisquick.com/#muttgrams, or pre-fill a question with https://www.davidisquick.com/?ask=your+question.
 
@@ -27,9 +27,10 @@ Every page of content is also available as Markdown — start with https://www.d
 - [Keynotes and conferences](https://www.davidisquick.com/#talks): RDC23–RDC25 Creator Keynotes, GraphQL Summit, Opticon, Test and Learn, F8.
 - [How I work](https://www.davidisquick.com/#method): Start with the buyer, make launches repeatable, respect developers, enable the people who carry the story.
 
-## Muttgrams
+## Apps (Edira LLC)
 
 - [Muttgrams](https://www.davidisquick.com/#muttgrams): iOS app that sends you a daily photo from your dog and texts you back in their voice. Built and shipped solo via Edira LLC in July 2026. Free on iPhone and iPad with optional Muttgrams Pro. [App Store](https://apps.apple.com/us/app/muttgrams/id6759312419) · [muttgrams.com](https://muttgrams.com)
+- [Catgrams](https://www.davidisquick.com/#catgrams): The same idea for cats: a daily photo from your cat and replies in their voice. Live on the App Store. [catgrams.com](https://catgrams.com)
 
 ## Contact
 
@@ -43,6 +44,6 @@ Every page of content is also available as Markdown — start with https://www.d
 
 - [Whole site in one file](https://www.davidisquick.com/index.md)
 - [Resume](https://www.davidisquick.com/resume.md)
-- One file per topic: [about](https://www.davidisquick.com/md/about.md), [experience](https://www.davidisquick.com/md/experience.md), [portfolio](https://www.davidisquick.com/md/portfolio.md), [mintlify](https://www.davidisquick.com/md/mintlify.md), [roblox](https://www.davidisquick.com/md/roblox.md), [apollo](https://www.davidisquick.com/md/apollo.md), [optimizely](https://www.davidisquick.com/md/optimizely.md), [facebook](https://www.davidisquick.com/md/facebook.md), [samples](https://www.davidisquick.com/md/samples.md), [talks](https://www.davidisquick.com/md/talks.md), [method](https://www.davidisquick.com/md/method.md), [muttgrams](https://www.davidisquick.com/md/muttgrams.md), [contact](https://www.davidisquick.com/md/contact.md)
+- One file per topic: [about](https://www.davidisquick.com/md/about.md), [experience](https://www.davidisquick.com/md/experience.md), [portfolio](https://www.davidisquick.com/md/portfolio.md), [mintlify](https://www.davidisquick.com/md/mintlify.md), [roblox](https://www.davidisquick.com/md/roblox.md), [apollo](https://www.davidisquick.com/md/apollo.md), [optimizely](https://www.davidisquick.com/md/optimizely.md), [facebook](https://www.davidisquick.com/md/facebook.md), [samples](https://www.davidisquick.com/md/samples.md), [talks](https://www.davidisquick.com/md/talks.md), [method](https://www.davidisquick.com/md/method.md), [muttgrams](https://www.davidisquick.com/md/muttgrams.md), [catgrams](https://www.davidisquick.com/md/catgrams.md), [contact](https://www.davidisquick.com/md/contact.md)
 - [Stop Launching. Start Rolling Out.](https://www.davidisquick.com/md/samples/stop-launching-start-rolling-out.md) — Optimizely blog post
 - [Getting Started with Product Experimentation](https://www.davidisquick.com/md/samples/getting-started-with-product-experimentation.md) — Optimizely whitepaper

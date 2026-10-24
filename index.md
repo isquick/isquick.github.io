@@ -1,6 +1,6 @@
 ---
 title: David Isquick
-description: Chat with David Isquick's personal agent. Principal Product Marketer at Mintlify, former Head of Product Marketing for Creator and AI at Roblox, and founder of Muttgrams. Resume, portfolio, work samples, and contact.
+description: Chat with David Isquick's personal agent. Principal Product Marketer at Mintlify, former Head of Product Marketing for Creator and AI at Roblox, and founder of Edira LLC, maker of Muttgrams and Catgrams. Resume, portfolio, work samples, and contact.
 url: https://www.davidisquick.com/
 ---
 
@@ -26,6 +26,7 @@ This is the Markdown version of https://www.davidisquick.com/, a chat-style pers
 - [Keynotes & conferences](md/talks.md) — Which keynotes and conferences have you run?
 - [How I work](md/method.md) — How do you approach product marketing?
 - [Muttgrams](md/muttgrams.md) — What is Muttgrams?
+- [Catgrams](md/catgrams.md) — What is Catgrams?
 - [Resume](md/resume.md) — Can I get your resume?
 - [Contact & socials](md/contact.md) — How can I reach you?
 - [The Hampster Dance](md/hampster.md) — Show me something fun
@@ -48,7 +49,7 @@ I build go-to-market strategy for AI, developer platforms, and enterprise SaaS �
 
 Right now I’m Principal Product Marketer at [Mintlify](https://mintlify.com). Before that I led product marketing for Creator and AI at Roblox, built the PMM team at [Apollo GraphQL](https://www.apollographql.com), and ran developer and product marketing at Optimizely and Facebook.
 
-I’m also the founder of Edira LLC, where I built and shipped [Muttgrams](md/muttgrams.md) — an iOS app that sends you a daily photo from your dog and texts you back in their voice.
+I’m also the founder of Edira LLC, where I built and shipped [Muttgrams](md/muttgrams.md) — an iOS app that sends you a daily photo from your dog and texts you back in their voice — and its sibling for cat people, [Catgrams](md/catgrams.md). Both are live on the App Store.
 
 Twelve-plus years in, the through line is the same: make technical products legible to the people who buy them, and give the team a repeatable way to ship that story.
 
@@ -57,6 +58,7 @@ Twelve-plus years in, the through line is the same: make technical products legi
 - [Resume](md/resume.md) — two pages, current as of my move to Mintlify.
 - [Portfolio](md/portfolio.md) — the launches and programs behind the bullet points.
 - [Muttgrams](https://apps.apple.com/us/app/muttgrams/id6759312419) — free on the App Store, and the thing I’m proudest of shipping alone.
+- [Catgrams](md/catgrams.md) — the same idea for cats, also on the App Store.
 
 ---
 
@@ -69,7 +71,7 @@ Twelve-plus years of product marketing across AI, developer platforms, and enter
 - [**Apollo GraphQL**](md/apollo.md) — Director of Product Marketing · Dec 2020 – Dec 2022
 - [**Optimizely**](md/optimizely.md) — Director, then Senior Manager, Product Marketing · May 2017 – Nov 2020
 - [**Facebook**](md/facebook.md) — Product Marketing Manager, Developer Marketing · Nov 2012 – Apr 2017
-- [**Edira LLC**](md/muttgrams.md) — Founder, maker of Muttgrams
+- [**Edira LLC**](md/muttgrams.md) — Founder, maker of Muttgrams and Catgrams
 
 Earlier: Samsung Austin Semiconductor. The full detail is in the [resume](md/resume.md).
 
@@ -89,7 +91,7 @@ Each of these is a program I owned end to end — positioning through to the sal
 
 #### Also launched
 
-Optimizely Performance Edge · Messenger Platform · Facebook Spaces · Optimizely Rollouts · Facebook Analytics
+Optimizely Performance Edge · Messenger Platform · Facebook Spaces · Optimizely Rollouts · Facebook Analytics · [Muttgrams](md/muttgrams.md) · [Catgrams](md/catgrams.md)
 
 ---
 
@@ -231,6 +233,26 @@ Muttgrams is an iOS app that turns your dog into a text thread. Every day a phot
 Twelve years of marketing other people’s products left me wanting one of my own end to end, so I started Edira LLC and shipped Muttgrams to the App Store in July 2026: the product idea, the app, the AI chat, the subscription, and the marketing site. It’s a Tamagotchi crossed with a chatbot, and it is the shortest feedback loop I have ever had between a positioning decision and a real user.
 
 Free on iPhone and iPad, with an optional Muttgrams Pro subscription.
+
+Team cat? [Catgrams](md/catgrams.md) does the same thing for your cat.
+
+---
+
+### Catgrams
+
+_Founder · Edira LLC · Live on the App Store_
+
+Catgrams is Muttgrams for cat people: an iOS app that turns your cat into a text thread. Every day a photo “from” your cat lands in chat, and whatever you send gets a reply in their voice.
+
+[catgrams.com](https://catgrams.com)
+
+#### How it works
+
+- Add photos of your cat and tell it their name, breed, and personality.
+- Every day you get a photo “from” your cat, drawn from the pictures you pick.
+- Text them, and they reply in their own voice. Chats are private to you — there’s no social feed.
+
+Muttgrams proved the idea, so I shipped a second app for the other half of the pet world.
 
 ---
 

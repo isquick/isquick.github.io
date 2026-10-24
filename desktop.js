@@ -41,6 +41,11 @@
 		'<rect x="2.5" y="16" width="27" height="3.5" fill="#815434"/>' +
 		'<rect x="13.5" y="15" width="5" height="6" rx="1" fill="#f0d08a" stroke="#4a3220" stroke-width="1.2"/>' +
 		"</symbol>" +
+		'<symbol id="i-chat" viewBox="0 0 32 32">' +
+		'<path d="M3 5h26v16H14l-6 6v-6H3z" fill="#fff" stroke="#3b3b3b" stroke-width="1.2" stroke-linejoin="round"/>' +
+		'<rect x="3" y="5" width="26" height="4" fill="#1f6f5c"/>' +
+		'<g fill="#1f6f5c"><circle cx="10" cy="14.5" r="1.8"/><circle cx="16" cy="14.5" r="1.8"/><circle cx="22" cy="14.5" r="1.8"/></g>' +
+		"</symbol>" +
 		'<symbol id="i-globe" viewBox="0 0 32 32">' +
 		'<circle cx="16" cy="16" r="12.5" fill="#2f7fd0" stroke="#17456f" stroke-width="1.2"/>' +
 		'<g fill="none" stroke="#cfe7ff" stroke-width="1.1">' +
