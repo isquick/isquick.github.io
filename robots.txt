@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /retro.html
+Disallow: /retro-portfolio.html
+
+Sitemap: https://www.davidisquick.com/sitemap.xml
