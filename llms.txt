@@ -4,6 +4,8 @@
 
 This site is a chat-style personal agent. All of its answers are written into the HTML of the home page, one section per topic. You can link to any topic with a hash, e.g. https://www.davidisquick.com/#muttgrams, or pre-fill a question with https://www.davidisquick.com/?ask=your+question.
 
+Every page of content is also available as Markdown — start with https://www.davidisquick.com/index.md (the whole site in one file).
+
 ## About
 
 - [About David](https://www.davidisquick.com/#about): Builds go-to-market strategy for AI, developer platforms, and enterprise SaaS: positioning, launches, pricing narratives, and the sales motion that carries them. 12+ years.
@@ -36,3 +38,11 @@ This site is a chat-style personal agent. All of its answers are written into th
 - [GitHub](https://github.com/isquick82)
 - [Twitter](https://twitter.com/isquick)
 - [Stack Overflow](https://stackoverflow.com/users/1480751/david-isquick)
+
+## Markdown versions
+
+- [Whole site in one file](https://www.davidisquick.com/index.md)
+- [Resume](https://www.davidisquick.com/resume.md)
+- One file per topic: [about](https://www.davidisquick.com/md/about.md), [experience](https://www.davidisquick.com/md/experience.md), [portfolio](https://www.davidisquick.com/md/portfolio.md), [mintlify](https://www.davidisquick.com/md/mintlify.md), [roblox](https://www.davidisquick.com/md/roblox.md), [apollo](https://www.davidisquick.com/md/apollo.md), [optimizely](https://www.davidisquick.com/md/optimizely.md), [facebook](https://www.davidisquick.com/md/facebook.md), [samples](https://www.davidisquick.com/md/samples.md), [talks](https://www.davidisquick.com/md/talks.md), [method](https://www.davidisquick.com/md/method.md), [muttgrams](https://www.davidisquick.com/md/muttgrams.md), [contact](https://www.davidisquick.com/md/contact.md)
+- [Stop Launching. Start Rolling Out.](https://www.davidisquick.com/md/samples/stop-launching-start-rolling-out.md) — Optimizely blog post
+- [Getting Started with Product Experimentation](https://www.davidisquick.com/md/samples/getting-started-with-product-experimentation.md) — Optimizely whitepaper

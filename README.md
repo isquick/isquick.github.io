@@ -29,7 +29,26 @@ Edit or add a `<section class="kb">` in `index.html`:
 | `data-next`  | Follow-up topic ids suggested after this answer                  |
 
 Links to `#topic-id` inside an answer become follow-up questions in the chat.
-Keep `llms.txt` in sync when content changes.
+
+**After editing `index.html`, regenerate the Markdown copies:**
+
+    python3 tools/build_md.py
+
+Keep `llms.txt` in sync when topics are added or removed.
+
+## Markdown versions
+
+Every piece of content has a `.md` copy, for AI agents, feed readers, and
+anyone who wants plain text:
+
+- `index.md` — the whole site in one file (generated)
+- `md/<topic>.md` — one file per topic (generated)
+- `resume.md` — the resume (hand-transcribed from `resume.pdf`; update it with the PDF)
+- `md/samples/*.md` — text versions of the writing-sample PDFs (hand-transcribed)
+
+The Facebook Analytics and Optimizely page PDFs are images with no text, so
+they have no Markdown copy. `.nojekyll` makes GitHub Pages serve `.md` files
+as-is instead of converting them to HTML.
 
 ### Links
 
