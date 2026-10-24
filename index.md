@@ -58,7 +58,7 @@ Twelve-plus years in, the through line is the same: make technical products legi
 - [Resume](md/resume.md) — two pages, current as of my move to Mintlify.
 - [Portfolio](md/portfolio.md) — the launches and programs behind the bullet points.
 - [Muttgrams](https://apps.apple.com/us/app/muttgrams/id6759312419) — free on the App Store, and the thing I’m proudest of shipping alone.
-- [Catgrams](md/catgrams.md) — the same idea for cats, also on the App Store.
+- [Catgrams](md/catgrams.md) — the same idea for cats, also [on the App Store](https://apps.apple.com/us/app/catgrams/id6797157394).
 
 ---
 
@@ -244,7 +244,7 @@ _Founder · Edira LLC · Live on the App Store_
 
 Catgrams is Muttgrams for cat people: an iOS app that turns your cat into a text thread. Every day a photo “from” your cat lands in chat, and whatever you send gets a reply in their voice.
 
-[catgrams.com](https://catgrams.com)
+[Download on the App Store](https://apps.apple.com/us/app/catgrams/id6797157394) · [catgrams.com](https://catgrams.com)
 
 #### How it works
 

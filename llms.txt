@@ -30,7 +30,7 @@ Every page of content is also available as Markdown — start with https://www.d
 ## Apps (Edira LLC)
 
 - [Muttgrams](https://www.davidisquick.com/#muttgrams): iOS app that sends you a daily photo from your dog and texts you back in their voice. Built and shipped solo via Edira LLC in July 2026. Free on iPhone and iPad with optional Muttgrams Pro. [App Store](https://apps.apple.com/us/app/muttgrams/id6759312419) · [muttgrams.com](https://muttgrams.com)
-- [Catgrams](https://www.davidisquick.com/#catgrams): The same idea for cats: a daily photo from your cat and replies in their voice. Live on the App Store. [catgrams.com](https://catgrams.com)
+- [Catgrams](https://www.davidisquick.com/#catgrams): The same idea for cats: a daily photo from your cat and replies in their voice. Live on the App Store. [App Store](https://apps.apple.com/us/app/catgrams/id6797157394) · [catgrams.com](https://catgrams.com)
 
 ## Contact
 

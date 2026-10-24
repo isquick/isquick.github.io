@@ -11,7 +11,7 @@ _Founder · Edira LLC · Live on the App Store_
 
 Catgrams is Muttgrams for cat people: an iOS app that turns your cat into a text thread. Every day a photo “from” your cat lands in chat, and whatever you send gets a reply in their voice.
 
-[catgrams.com](https://catgrams.com)
+[Download on the App Store](https://apps.apple.com/us/app/catgrams/id6797157394) · [catgrams.com](https://catgrams.com)
 
 ### How it works
 

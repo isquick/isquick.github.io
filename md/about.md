@@ -22,7 +22,7 @@ Twelve-plus years in, the through line is the same: make technical products legi
 - [Resume](resume.md) — two pages, current as of my move to Mintlify.
 - [Portfolio](portfolio.md) — the launches and programs behind the bullet points.
 - [Muttgrams](https://apps.apple.com/us/app/muttgrams/id6759312419) — free on the App Store, and the thing I’m proudest of shipping alone.
-- [Catgrams](catgrams.md) — the same idea for cats, also on the App Store.
+- [Catgrams](catgrams.md) — the same idea for cats, also [on the App Store](https://apps.apple.com/us/app/catgrams/id6797157394).
 
 ---
 
